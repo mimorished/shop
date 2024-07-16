@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>3 Month Internet Subscription</title>
+    <link rel="stylesheet" type="text/css" href="styles3.css">   
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <h2 class="logo">Logo</h2>
+        <nav class="navigation">
+            <a href="newpage.html">Home</a>
+            <a href="cart.html">Cart</a> 
+            <a href="">Subscirption</a>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <div id="item-details">
+            <img src="sub.jpg" alt="Item Image">
+        </div>
+        <button id="buy-btn">Add to Cart</button>
+    
+        <div id="cart-confirmation" style="display: none;">
+            <h3>Added to Cart</h3>
+            <p>Thank you for adding this item to your cart.</p>
+            <div id="qr-code"></div>
+        </div>
+    
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/umd/qrcode.min.js"></script>
+
+    <script>
+        document.getElementById('buy-btn').addEventListener('click', function() {
+            // Show cart confirmation section
+            document.getElementById('cart-confirmation').style.display = 'block';
+
+            // Generate QR code
+            var qrCode = new QRCode(document.getElementById('qr-code'), {
+                text: 'Item added to cart', // You can replace this with actual sale information
+                width: 128,
+                height: 128,
+                colorDark : '#000000',
+                colorLight : '#ffffff',
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+    </script>
+</body>
+</html>
